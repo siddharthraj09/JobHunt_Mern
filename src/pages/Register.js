@@ -20,7 +20,8 @@ function Register() {
       setValues({...values,isMember:!values.isMember})
   }
   const handleChange = (e) => {
-    console.log(e.target);
+   setValues({...values,[e.target.name]:e.target.value})
+  
   };
   const onSubmit = (e) => {
     e.preventDefault();
