@@ -1,7 +1,9 @@
+
 import express from 'express'
 import dotenv from 'dotenv'
 dotenv.config()
 import 'express-async-errors'
+import morgan from 'morgan'
 
 const app =express()
 
@@ -16,13 +18,19 @@ import jobsRouter from './routes/jobsRoutes.js'
 import notFoundMiddleware from './middleware/not-found.js'
 import errorHandlerMiddleware from './middleware/error-handler.js'
 
+if(process.env.NODE_ENV!== 'production'){
+    app.use(morgan('dev'))
+}
 app.use(express.json())
-
 
 
 app.get('/',(req,res)=>{
    
-    res.send("Welcome")
+    res.json({msg:"welcome"})
+})
+app.get('/api/v1',(req,res)=>{
+   
+    res.json({msg:"API"})
 })
 
 app.use('/api/v1/auth',authRouter)
