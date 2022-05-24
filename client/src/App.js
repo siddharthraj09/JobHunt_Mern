@@ -1,32 +1,36 @@
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
-import { Error, Landing, Register, ProtectedRoute } from "./pages";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Register, Landing, Error, ProtectedRoute } from './pages'
 import {
-  AddJob,
-  AllJob,
+  AllJobs,
   Profile,
   SharedLayout,
   Stats,
-} from "./pages/dashboard";
+  AddJob,
+} from './pages/dashboard'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={
+        <Route
+          path='/'
+          element={
             <ProtectedRoute>
               <SharedLayout />
-            </ProtectedRoute> }>
-              <Route index element={<Stats />} />
-              <Route path="all-jobs" element={<AllJob />} />
-              <Route path="add-job" element={<AddJob />} />
-              <Route path="profile" element={<Profile />} />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<Stats />} />
+          <Route path='all-jobs' element={<AllJobs />} />
+          <Route path='add-job' element={<AddJob />} />
+          <Route path='profile' element={<Profile />} />
         </Route>
-        <Route path="/register" element={<Register />} />
-        <Route path="/landing" element={<Landing />} />
-        <Route path="*" element={<Error />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/landing' element={<Landing />} />
+        <Route path='*' element={<Error />} />
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

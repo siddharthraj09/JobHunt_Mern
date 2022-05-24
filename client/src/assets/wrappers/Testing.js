@@ -14,7 +14,6 @@ const Wrapper = styled.main`
     display: grid;
     align-items: center;
     margin-top: -3rem;
-    
   }
   h1 {
     font-weight: 700;
